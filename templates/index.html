@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hotel Photography Shots</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="p-4">
+    <h2>Hotel Photography Shots</h2>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Area</th>
+                <th>Shot Code</th>
+                <th>Best Time</th>
+                <th>Prompt</th>
+                <th>Generate</th>
+                <th>Generated Image</th>
+                <th>Upscale</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for shot in shots %}
+            <tr>
+                <td>{{ shot.area }}</td>
+                <td>{{ shot.shotCode }}</td>
+                <td>{{ shot.bestTime }}</td>
+                <td style="max-width:300px;">{{ shot.mjPrompt }}</td>
+                <td>
+                    <button class="btn btn-primary btn-generate" data-index="{{ loop.index0 }}">Generate</button>
+                </td>
+                <td id="generated-{{ loop.index0 }}"></td>
+                <td id="upscaled-{{ loop.index0 }}"></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script>
+        document.querySelectorAll('.btn-generate').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                const index = btn.getAttribute('data-index');
+
+                try {
+                    const response = await fetch(`/generate_image/${index}`, { method: "POST" });
+                    const contentType = response.headers.get("content-type");
+
+                    if (contentType && contentType.includes("application/json")) {
+                        const data = await response.json();
+
+                        if (data.image_url) {
+                            const imgTag = `
+                                <img src="${data.image_url}" width="300"/>
+                                <br>
+                                <button class="btn btn-sm btn-success mt-1" onclick="upscaleImage(${index})">Upscale</button>
+                                <button class="btn btn-sm btn-secondary mt-1 ms-2" onclick="downloadImage('${data.image_url}', 'generated_${index}.png')">Download</button>
+                            `;
+                            document.getElementById(`generated-${index}`).innerHTML = imgTag;
+                        } else {
+                            alert("❌ Error: " + data.error);
+                        }
+                    } else {
+                        const text = await response.text();
+                        console.error("❌ Not JSON response:", text);
+                        alert("Something went wrong (not JSON). Check console.");
+                    }
+                } catch (error) {
+                    console.error("❌ JS Error:", error);
+                    alert("Something failed. Check console.");
+                }
+            });
+        });
+
+        async function upscaleImage(index) {
+            try {
+                const response = await fetch(`/upscale_image/${index}`);
+                const contentType = response.headers.get("content-type");
+
+                if (contentType && contentType.includes("application/json")) {
+                    const data = await response.json();
+
+                    if (data.upscaled_url) {
+                        const imgTag = `
+                            <img src="${data.upscaled_url}" width="300"/>
+                            <br>
+                            <button class="btn btn-sm btn-secondary mt-1" onclick="downloadImage('${data.upscaled_url}', 'upscaled_${index}.png')">Download</button>
+                        `;
+                        document.getElementById(`upscaled-${index}`).innerHTML = imgTag;
+                    } else {
+                        alert("❌ Upscale error: " + data.error);
+                    }
+                } else {
+                    const text = await response.text();
+                    console.error("❌ Not JSON:", text);
+                    alert("Something went wrong (not JSON). Check console.");
+                }
+            } catch (error) {
+                console.error("❌ JS Error:", error);
+                alert("Upscaling failed.");
+            }
+        }
+
+        function downloadImage(url, filename) {
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+</body>
+</html>
