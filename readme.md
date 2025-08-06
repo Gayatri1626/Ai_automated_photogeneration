@@ -1,5 +1,4 @@
 
-
 ### 📝 `README.md`
 
 ```markdown
@@ -14,7 +13,7 @@ This is a Flask-based web app that helps generate and upscale hotel photography 
 - 📸 Generate hotel photography visuals using **DALL·E 3 (OpenAI)**
 - 🚀 Upscale the generated images using **SDXL model (Replicate)**
 - 💾 Prompt data comes from a `shots.json` file
-- 🖼️ View all shots, generate images,download them and upscale them — all from a web UI
+- 🖼️ View all shots, generate images, and upscale them — all from a web UI
 
 ---
 
@@ -97,4 +96,5 @@ Each entry in `shots.json` should follow this format:
 
 ---
 
-
+Would you like me to generate the actual `shots.json` from your `.docx` assignment now?
+```
