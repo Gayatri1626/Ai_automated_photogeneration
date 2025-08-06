@@ -1,0 +1,54 @@
+[
+  {
+    "area": "Exterior / Arrival",
+    "shotName(simple)": "Facade hero (centered)",
+    "shotCode": "FAC-HERO-01",
+    "iphoneLens(0.5×/1×/2×/3×)": "0.5×",
+    "orientation(h/v)": "H",
+    "whereToStand/HowToFrame": "Stand centered, 10–20 m back; keep phone level, building verticals straight",
+    "bestTime": "Blue hour",
+    "styling/Clean-upNotes": "All exterior + lobby lights ON; doors open; driveway clear",
+    "alsoShootVertical?": "Yes",
+    "suggestedFolder": "Exterior",
+    "mjPrompt": "A majestic, wide-angle hero shot of the hotel facade, captured horizontally from a centered position 10-20 meters back to frame the building in perfect symmetry. All vertical lines are straight, emphasizing architectural grandeur. The scene is set during blue hour, with the deep blue sky complementing the warm glow from all exterior and lobby lights. The main doors are open invitingly, and the driveway is clear for a pristine, uninterrupted view. A vertical version of this shot should also be captured."
+  },
+  {
+    "area": "Exterior / Arrival",
+    "shotName(simple)": "Arrival driveway symmetry",
+    "shotCode": "ARR-DRIVE-01",
+    "iphoneLens(0.5×/1×/2×/3×)": "0.5×",
+    "orientation(h/v)": "H",
+    "whereToStand/HowToFrame": "Center of driveway; one-point perspective down the lane",
+    "bestTime": "Golden hour",
+    "styling/Clean-upNotes": "If allowed, lightly wet pavement for sheen; remove vehicles",
+    "alsoShootVertical?": "No",
+    "suggestedFolder": "Exterior",
+    "mjPrompt": "Create a wide-angle, one-point perspective shot looking down the hotel's arrival driveway, captured from the exact center to create perfect symmetry. The scene is bathed in the warm, soft light of golden hour. The pavement is lightly wet, casting a beautiful sheen and reflecting the golden light. The driveway is completely clear of any vehicles, emphasizing the clean, inviting lines leading towards the hotel entrance."
+  },
+  {
+    "area": "Exterior / Arrival",
+    "shotName(simple)": "Hotel sign / logo close",
+    "shotCode": "EXT-LOGO-01",
+    "iphoneLens(0.5×/1×/2×/3×)": "3× (or 2×)",
+    "orientation(h/v)": "V",
+    "whereToStand/HowToFrame": "3–6 m from sign; fill frame cleanly",
+    "bestTime": "Golden hour",
+    "styling/Clean-upNotes": "Polish sign; remove stickers/tape",
+    "alsoShootVertical?": "No",
+    "suggestedFolder": "Exterior",
+    "mjPrompt": "A detailed, telephoto close-up of the hotel's exterior sign or logo, captured vertically to fill the frame cleanly. The shot is taken during the golden hour, with the warm light beautifully illuminating the sign's materials. The sign itself is perfectly polished and pristine, free of any stickers or tape, showcasing the brand with elegance."
+  },
+  {
+    "area": "Exterior / Arrival",
+    "shotName(simple)": "Entry doors",
+    "shotCode": "EXT-DOOR-01",
+    "iphoneLens(0.5×/1×/2×/3×)": "1×",
+    "orientation(h/v)": "V",
+    "whereToStand/HowToFrame": "2–4 m away, slight low angle; center the doors",
+    "bestTime": "Daytime",
+    "styling/Clean-upNotes": "Polish glass/brass; mats tidy",
+    "alsoShootVertical?": "No",
+    "suggestedFolder": "Exterior",
+    "mjPrompt": "A vertical shot centered on the hotel's main entry doors, taken from a slight low angle about 2-4 meters away. The daytime lighting is bright and clean. All glass and brass on the doors are polished to a shine, and the welcome mats are perfectly tidy, creating an inviting and immaculate entrance."
+  }
+]
